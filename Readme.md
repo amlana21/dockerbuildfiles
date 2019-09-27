@@ -2,7 +2,7 @@
 
 This is short and simple list of various Docker Files using which different personal build/work environments can be launched easily.  
 To use the Dockerfiles below are the pre-requisites:  
-* Docker installed in yoour local machine  
+* Docker installed in your local machine  
 * If remote system is being used, make sure to install Docker first  
 * And internet connection if the images are required to be pushed to a Registry  
 
