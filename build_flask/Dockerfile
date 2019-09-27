@@ -9,4 +9,3 @@ ENV LANG C.UTF-8
 EXPOSE 5000
 WORKDIR /home/flaskapp
 CMD ["flask", "run", "--host", "0.0.0.0"]
-# //server hangup flask docker
