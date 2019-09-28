@@ -6,6 +6,10 @@ To use the Dockerfiles below are the pre-requisites:
 * If remote system is being used, make sure to install Docker first  
 * And internet connection if the images are required to be pushed to a Registry  
 
+All these images are available to be pulled from Docker hub:  
+
+https://hub.docker.com/u/awsacdev
+
 Below are descriptions for each of the Dockerfiles and how to use them.  
 
 ## General Build Environment(build)  
@@ -29,7 +33,7 @@ There is a directory pre-created which can be used to volume mount local codefil
 
 
 ## Flask Environment(build_flask)  
-This will launch a docker container with Flask installed and will start the web server. To run a Flask App with this web server, volume mount the app location as below. Make sure the app file name is 'app.py'.  
+This will launch a docker container with Flask installed and will start the web server. To run a Flask App with this web server, volume mount the app location as below. Make sure the app file name is 'app. py'.  
  ```docker container run -itd -v /local/code:/home/flaskapp -p 5000:5000 --name mycontainer <image_name>:<tag>```  
 Below are the components installed in the container:  
  * Python 3.6  
@@ -46,8 +50,8 @@ Below are the components installed in the container:
   ```docker container run -itd -v /local/code:/home/flaskapp -p 5000:5000 --name my container <username>/<image_name>:<tag>```  
 
 ## NGINX Environment(build_nginx)  
-This will launch a docker container with a basic installation of Nginx and the server will be accessible on port 80.To host web files, run the container as below
- ```docker container run -itd -v /local/files:/usr/share/nginx/html --name mycontainer <image_name>:<tag>```  
+This will launch a docker container with a basic installation of Nginx and the server will be accessible on port 80. To host web files, run the container as below
+ ```docker container run -itd -v /local/files:/usr/share/nginx/html -p 80:80 --name mycontainer <image_name>:<tag>```  
 Below are the components installed in the container:  
  * Nginx 
 
@@ -62,8 +66,8 @@ Below are the components installed in the container:
   ```docker container run -itd -v /local/files:/usr/share/nginx/html -p 80:80 --name my container <username>/<image_name>:<tag>```  
 
 ## NodeJS Environment(build_node)  
-This will launch a docker container with NodeJS installed and an Express web server running on port 3000.To use this NoDeJS server:  
- ```docker container run -itd -v /local/files:/nodefiles/src/public --name mycontainer <image_name>:<tag>```  
+This will launch a docker container with NodeJS installed and an Express web server running on port 3000. To use this NoDeJS server:  
+ ```docker container run -itd -v /local/files:/nodefiles/src/public -p 3000:3000 --name mycontainer <image_name>:<tag>```  
 
 To define a different app, modify the Dockerfile before building the image and modify this below line to copy files from different location:  
  ```COPY src /nodefiles```
@@ -83,7 +87,7 @@ Below are the components installed in the container:
   ```docker container run -itd -v /local/files:/nodefiles/src/public -p 3000:3000 --name my container <username>/<image_name>:<tag>```  
 
 ## Tomcat Environment(ubuntu_tomcat)  
-This will launch a docker container with Tomcat Server installed and running on port 8094.To launch the server:  
+This will launch a docker container with Tomcat Server installed and running on port 8094. To launch the server:  
  ```docker container run -itd -p 80:8094 --name mycontainer <image_name>:<tag>```
 
 The installed Tomcat uses default manager credentials. Which can be changed if needed, before building the image.  
@@ -108,4 +112,5 @@ Below are the components installed in the container:
  * Run the Container:  
   ```docker container run -itd -p 80:8094 --name my container <username>/<image_name>:<tag>```  
 
-  Any questions please raise an issue or reach out to me at: amlanc@achakladar.com.
+
+Any questions please raise an issue or reach out to me at: amlanc@achakladar.com.
